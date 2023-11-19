@@ -36,6 +36,7 @@ void addAtHead(string name, string nim){
     new_node->nim = nim;
     new_node->next = head;
     head = new_node;
+    
 }
 
 void printLinkedList(){
