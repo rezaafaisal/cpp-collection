@@ -13,6 +13,7 @@ void print(string string){
     cout<<string;
 }
 
+
 void createSingleList(string name, string nim){
     head = new Students();
     head->name = name;
@@ -36,7 +37,6 @@ void addAtHead(string name, string nim){
     new_node->nim = nim;
     new_node->next = head;
     head = new_node;
-    
 }
 
 void printLinkedList(){
@@ -119,15 +119,12 @@ void editDataByNim(){
 
 
 int main(){
-    createSingleList("Aliong", "123");
-    addAtTail("Hansen 54", "321");
-    addAtHead("Alexander Graham", "234");
+    createSingleList("Dedi", "60200119087");
+    addAtTail("Rian", "60200119078");
     printLinkedList();
 
     cout<<endl<<endl;
 
-    // deleteDataByNim();
     editDataByNim();
     printLinkedList();
-    
 }
