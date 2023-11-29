@@ -41,14 +41,14 @@ bool isFull(){
 // melihat data berdasarkan urutan
 void peek(int order){
     int item = 0;
-    if(isEmpty()) cout<<"Stack is empty!";
+    if(isEmpty) cout<<"Stack is empty!";
 
     else{
         current = top;
         while (current != NULL) {
             item++;
             if(item == order){
-                cout<<"Data at order "<<order<<" are "<<current->data;
+                cout<<"Data at order "<<order<<" are "<<current->data<<endl;
                 break;
             }
             current = current->next;
@@ -63,7 +63,7 @@ void destroy(){
 }
 
 void push(int val) {
-    if(isFull()) cout<<"Stack is overflow!";
+    if(isFull) cout<<"Stack is overflow!";
 
     else{
         struct Node* newnode = new Node();
@@ -74,7 +74,7 @@ void push(int val) {
 }
 
 void pop() {
-   if(isEmpty())
+   if(isEmpty)
    cout<<"Stack Underflow"<<endl;
 
    else {
@@ -104,13 +104,19 @@ int main() {
     push(12);
     push(89);
     push(90);
-    push(30);
-    push(56);
-    push(99);
-
     display();
 
-    peek(1);
+    cout<<endl<<endl;
+
+    pop();
+    display();
+
+    cout<<endl<<endl;
+    peek(2);
+    display();
+
+    cout<<endl<<endl;
+    cout<<"60200119075_Reza Faisal\n";
 
 
    return 0;
