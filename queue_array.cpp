@@ -3,63 +3,70 @@
 using namespace std;
 
 const int MAX = 5;
+int front = -1;
+int back = -1;
 
-struct Numbers{
-    int num;
-    Numbers *next;
-};
+int my_queue[MAX];
 
-Numbers *new_node, *front = NULL, *back = NULL, *current;
 
 int count(){
     int count = 0;
-    current = front;
-    while (current != NULL)
+    for (int i = front; i <= back; i++)
     {
         count++;
-        current = current->next;
     }
+    
 
     return count; 
     
 }
 
 bool isEmpty(){
-    if(front == NULL) return true;
+    if(back == -1) return true;
     return false;
 }
 
 bool isFull(){
-    if(count() >= MAX) return true;
+    if(back == MAX-1) return true;
     return false;
 }
 
 
 void enqueue(int num){
-    new_node = new Numbers();
-    new_node->num = num;
 
-    if(!isEmpty()){
-        new_node->next = front;
-        front = new_node;
+    if(isEmpty()){
+        back = front = 0;
     }
 
     else{
-        new_node->next = NULL;
-        back = front = new_node;
+        back++;
+    }
+
+    my_queue[back] = num;
+}
+
+void dequeue(){
+    if(isEmpty()){
+        cout<<"Antrian sudah kosong !\n";
+    }else {
+        for(int a = front; a < back; a++){
+            my_queue[a]=my_queue[a+1];
+        }
+        back--;
+        if(back == -1){
+            front = -1;
+        }
     }
 }
 
 void display(){
-    current = front;
-
     cout<<"Elements in Queue : ";
-    while (current != NULL)
+    for (int i = front; i <= back; i++)
     {
-        cout<<current->num<<" ";
-        current = current->next;
+        cout<<my_queue[i]<<" ";
     }
     cout<<endl;
+    
     
 }
 
@@ -69,4 +76,9 @@ int main(){
     enqueue(23);
     enqueue(9);
     display();
+
+    cout<<endl<<endl;
+    dequeue();
+    display();
+
 }
