@@ -20,7 +20,7 @@ int count(){
         current = current->next;
     }
 
-    return count;  
+    return count;
 }
 
 bool isEmpty(){
@@ -73,8 +73,7 @@ void display(){
         cout<<current->num<<" ";
         current = current->next;
     }
-    cout<<endl;
-    
+    cout<<endl;  
 }
 
 
@@ -82,7 +81,9 @@ int main(){
     enqueue(5);
     enqueue(7);
     enqueue(23);
+    enqueue(50);
     display();
+    
     cout<<endl<<endl;
     dequeue();
     display();
